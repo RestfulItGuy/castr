@@ -14,3 +14,17 @@ client.search({
 }).catch((error) => {
   console.log(error)
 });
+
+export function msToTime(s) {
+  var secs = s % 60;
+  s = (s - secs) / 60;
+  var mins = s % 60;
+  var hrs = (s - mins) / 60;
+
+  if (hrs !== 0) {
+    return hrs + ':' + mins + ':' + secs;
+  } else {
+    return mins + ':' + secs;
+  }
+
+}

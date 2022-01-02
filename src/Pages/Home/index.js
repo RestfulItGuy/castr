@@ -1,13 +1,21 @@
+import Tile from "../../Components/Tiles"
+import { Body } from './styles.js'
+
 import { data } from "../../dummydata"
 export default function Home() {
   return (
-    <>
-      <h1>Welcome to caster</h1>
+    <Body>
       {
         data.results.map(result => (
-          <p>{result.title_original}</p>
+          <Tile
+            key={result.id}
+            title={result.title_original}
+            publisher={result.podcast.publisher_original}
+            length={result.audio_length_sec}
+            thumbnail={result.thumbnail}
+          />
         ))
       }
-    </>
+    </Body>
   )
 }
