@@ -19,8 +19,8 @@ export const TimeDisplay = styled.div`
   color: white;
 
   position: absolute;
-  right: 5px; 
-  bottom: 5px;
+  right: 10px; 
+  bottom: 10px;
 `
 
 export const TileImg = styled.img`
