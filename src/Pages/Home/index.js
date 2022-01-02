@@ -1,8 +1,30 @@
+import { useState, useEffect } from 'react';
 import Tile from "../../Components/Tiles"
-import { Body } from './styles.js'
+import { Body } from './styles.js';
+import { data } from "../../dummydata";
 
-import { data } from "../../dummydata"
+const { Client } = require('podcast-api');
+
+const client = Client({
+  apiKey: process.env.REACT_APP_API_KEY
+});
+
 export default function Home() {
+  const [results, setresults] = useState();
+  useEffect(() => {
+    client.search({
+      q: 'paranormal',
+      type: 'podcast',
+      language: 'English'
+    }).then((response) => {
+      // Get response json data here
+      // console.log(response.data);
+      setresults(response.data)
+    }).catch((error) => {
+      console.log(error)
+    });
+  }, [])
+
   return (
     <Body>
       {
